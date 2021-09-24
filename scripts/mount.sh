@@ -1,6 +1,11 @@
 #!/bin/sh
 set -o errexit -o noclobber
 
+if [ -z "${NAME}" ]
+then
+	export NAME=bcachefs.img
+fi
+
 if [ -z "${CONTENT_SRC}" ]
 then
 	export CONTENT_SRC="$PWD"

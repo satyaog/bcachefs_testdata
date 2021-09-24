@@ -1,18 +1,17 @@
 #!/bin/sh
 set -o errexit -o noclobber
 
-
-if [[ -z "${NAME}" ]]
+if [ -z "${NAME}" ]
 then
 	export NAME=bcachefs.img
 fi
 
-if [[ -z "${SIZE}" ]]
+if [ -z "${SIZE}" ]
 then
 	export SIZE=10MiB
 fi
 
-if [[ -e "${NAME}" ]]
+if [ -e "${NAME}" ]
 then
 	exit 1
 fi
