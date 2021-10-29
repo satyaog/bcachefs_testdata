@@ -9,7 +9,7 @@ for i in {1..5000}; do
     ln "link_content/0" "link_content/$i"
 done
 
-SIZE=$(du -shc link_content | tail -n 1 | cut -f 1)
+# SIZE=$(du -shc link_content | tail -n 1 | cut -f 1)
 
 # Create a file with the size of your dataset
 truncate -s 10M link_content.img
@@ -38,7 +38,7 @@ echo "Copy"
 #   -R: Recursive
 #   -L: follow symbolic links in source
 #   -u: Update when source file is newer
-cp -dRLu link_content/* tmp/
+cp -vdRLu link_content/ tmp/
 
 echo "Sanity Check"
 find link_content -type f -exec md5sum {} \; | sort -k 2 | md5sum
