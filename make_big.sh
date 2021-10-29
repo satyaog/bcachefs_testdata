@@ -5,8 +5,8 @@ NAME="big_content"
 rm -rf $NAME
 mkdir -p $NAME
 
-truncate -s 10M $NAME/0
-truncate -s 10M $NAME/1
+head -c 10M </dev/urandom >$NAME/0
+head -c 10M </dev/urandom >$NAME/1
 
 # Create a file with the size of your dataset
 truncate -s 21M $NAME.img
